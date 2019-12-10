@@ -5,10 +5,10 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.interactions.internal.KeysRelatedAction;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -23,6 +23,11 @@ public class Search {
 
         driver.findElement(By.id("keywords")).sendKeys("Bag");
         driver.findElement(By.id("keywords")).sendKeys(Keys.ENTER);
+
+        List<WebElement> webElementList = new ArrayList();
+        webElementList = driver.findElements(By.xpath("//div[@data-hook='search_results']"));
+        webElementList.size();
+
         driver.findElement(By.xpath("//span[contains(text(),'Ruby on Rails Bag')]")).click();
         driver.findElement(By.id("add-to-cart-button")).click();
 
