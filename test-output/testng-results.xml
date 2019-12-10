@@ -6,12 +6,12 @@
     <groups>
     </groups>
     <test name="Selenium_Example" duration-ms="5715" started-at="2019-12-09T06:41:13Z" finished-at="2019-12-09T06:41:19Z">
-      <class name="LoginTestNG">
-        <test-method status="PASS" signature="verifyLoginLogout()[pri:0, instance:LoginTestNG@2c8d66b2]" name="verifyLoginLogout" duration-ms="5693" started-at="2019-12-09T06:41:13Z" finished-at="2019-12-09T06:41:19Z">
+      <class name="Tests.LoginTest">
+        <test-method status="PASS" signature="verifyLoginLogout()[pri:0, instance:Tests.LoginTest@2c8d66b2]" name="verifyLoginLogout" duration-ms="5693" started-at="2019-12-09T06:41:13Z" finished-at="2019-12-09T06:41:19Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyLoginLogout -->
-      </class> <!-- LoginTestNG -->
+      </class> <!-- Tests.LoginTest -->
     </test> <!-- Selenium_Example -->
   </suite> <!-- Default Suite -->
 </testng-results>
