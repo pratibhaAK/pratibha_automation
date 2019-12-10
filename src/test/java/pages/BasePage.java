@@ -1,5 +1,6 @@
 package pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -12,7 +13,7 @@ public class BasePage extends SuiteManager {
         PageFactory.initElements(driver,this);
     }
 
-    @FindBy(css="#link-to-login")
+    @FindBy(id="link-to-login")
     private WebElement loginButton;
 
     @FindBy(linkText = "Logout")
@@ -23,7 +24,8 @@ public class BasePage extends SuiteManager {
         return new LoginPage();
     }
 
-    public  void logout(){
+    public  LogoutPage logout(){
         signoutField.click();
+        return new LogoutPage();
     }
 }

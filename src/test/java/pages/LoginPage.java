@@ -19,6 +19,8 @@ public class LoginPage {
     @FindBy(id ="spree_user_password")
     private WebElement passwordField;
 
+    @FindBy(name="commit")
+    private WebElement loginButton;
 
     public void enterValue(WebElement field, String value){
 
@@ -29,6 +31,7 @@ public class LoginPage {
     public HomePage login(String username, String password){
         enterValue(usernameField,username);
         enterValue(passwordField,password);
+        loginButton.click();
 
         return new HomePage();
     }

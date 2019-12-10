@@ -56,14 +56,17 @@ public class LoginTest extends SuiteManager {
     basePage = new BasePage(DriverManager.driver);
     loginPage = basePage.clickLoginButton();
     loginPage.login(username,password);
+        System.out.println("Sign in sucessfully");
     }
 
-    @Test(dependsOnMethods = {"verifyLogin"})
+    @Test
+    //(dependsOnMethods = {"verifyLogin"})
     public void VerifyLogout(){
-        WebElement myDynamicElement = (new WebDriverWait(DriverManager.driver, 15))
+/*        WebElement myDynamicElement = (new WebDriverWait(DriverManager.driver, 15))
                 .until(ExpectedConditions.presenceOfElementLocated
                         (By.xpath(logout)));
-        DriverManager.driver.findElement(By.xpath(logout)).click();
+        DriverManager.driver.findElement(By.xpath(logout)).click();*/
+        basePage.logout();
         System.out.println("Signed out sucessfully");
     }
 
