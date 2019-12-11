@@ -16,16 +16,9 @@ public class BasePage extends SuiteManager {
     @FindBy(id="link-to-login")
     private WebElement loginButton;
 
-    @FindBy(linkText = "Logout")
-    private WebElement signoutField;
-
     public LoginPage clickLoginButton(){
         loginButton.click();
         return new LoginPage();
     }
 
-    public  LogoutPage logout(){
-        signoutField.click();
-        return new LogoutPage();
-    }
 }

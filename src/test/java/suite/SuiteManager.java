@@ -2,6 +2,7 @@ package suite;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterSuite;
@@ -15,7 +16,6 @@ public class SuiteManager {
     String email="spree_user_email";
     String pwd="spree_user_password";
     String linkToLogin="link-to-login";
-
 
    private static ConfigFileReader config = new ConfigFileReader();
 
@@ -47,5 +47,8 @@ public class SuiteManager {
         DriverManager.driver.findElement(By.name("commit")).click();
 
     }
-
+     public  void signout(){
+        WebElement signoutField= DriverManager.driver.findElement(By.xpath("//a[contains(text(), 'Logout')]"));
+        signoutField.click();
+     }
 }

@@ -37,7 +37,8 @@ public class Search {
         String element= webElementList.get(0).getText();
         driver.findElement(By.xpath("//span[contains(text(),element)]")).click();
 
-        //add product details to list to verify in cart page
+        //add product details to list to verify if the same product is added in cart page
+
         List<WebElement> webElementList1 = new ArrayList();
         driver.findElement(By.id("add-to-cart-button")).click();
 
