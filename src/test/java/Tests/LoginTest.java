@@ -62,7 +62,7 @@ public class LoginTest extends SuiteManager {
     (dependsOnMethods = {"verifyLogin"})
     public void VerifyLogout(){
       // WebElement myDynamicElement = (new WebDriverWait(DriverManager.driver, 15)).until(ExpectedConditions.presenceOfElementLocated(By.xpath("//a[contains(text(), 'Logout')]")));
-        signout();
+       // signout();
         System.out.println("Signed out sucessfully");
     }
 

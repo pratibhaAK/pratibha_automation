@@ -5,9 +5,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import sun.jvm.hotspot.tools.SysPropsDumper;
+
 
 import java.sql.SQLOutput;
 import java.util.ArrayList;
@@ -39,7 +37,8 @@ public class Search {
         //add product details to list to verify if the same product is added in cart page
 
         List<WebElement> webElementList1 = new ArrayList();
-        webElementList1=  driver.findElements(By.xpath("//span[contains(text(),element)]"));
+        driver.findElement(By.xpath("//span[contains(text(),element)]")).click();
+        webElementList1=  driver.findElements(By.xpath("//span[@class='info mt-3 d-block']"));
         driver.findElement(By.xpath("//span[contains(text(),element)]")).click();
         for (WebElement e : webElementList1){
             System.out.println(e.getText());

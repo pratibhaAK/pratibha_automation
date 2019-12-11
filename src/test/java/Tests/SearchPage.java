@@ -11,8 +11,7 @@ public class SearchPage extends SuiteManager{
     @Test
     public void searchProduct(){
         getlogindata();
-        DriverManager.driver.findElement(By.id("keywords")).sendKeys("Bag");
-        DriverManager.driver.findElement(By.id("keywords")).sendKeys(Keys.ENTER);
+        searchProduct();
     }
 
 }

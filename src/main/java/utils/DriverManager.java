@@ -15,17 +15,17 @@ public class DriverManager {
     public static final String AUTOMATE_KEY = "sem8FogpbCZnZXN3xCmh";
     public static final String URL = "https://" + USERNAME + ":" + AUTOMATE_KEY + "@hub-cloud.browserstack.com/wd/hub";
 
-    public DriverManager() throws MalformedURLException {
+    public DriverManager() {//throws MalformedURLException {
 
         //This is required for local execution
 
-//       String chromeDriverPath=  System.setProperty("webdriver.chrome.driver",System.getProperty
-//               ("user.dir")+"/src/main/resources/Drivers/chromedriver");
-//        driver = new ChromeDriver();
+       String chromeDriverPath=  System.setProperty("webdriver.chrome.driver",System.getProperty
+               ("user.dir")+"/src/main/resources/Drivers/chromedriver2");
+        driver = new ChromeDriver();
 
         //This is required to execute on browserstack
 
-        DesiredCapabilities caps = new DesiredCapabilities();
+/*        DesiredCapabilities caps = new DesiredCapabilities();
         caps.setCapability("browser", "Chrome");
         caps.setCapability("browser_version", "78.0");
         caps.setCapability("os", "OS X");
@@ -34,6 +34,6 @@ public class DriverManager {
         caps.setCapability("name", "Bstack-[Java] Sample Test");
         driver = new RemoteWebDriver(new URL(URL), caps);
         driver.manage().timeouts().implicitlyWait(15, TimeUnit.MILLISECONDS);
-        driver.manage().window().maximize();
+        driver.manage().window().maximize();  */
     }
 }

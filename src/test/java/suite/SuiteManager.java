@@ -1,6 +1,7 @@
 package suite;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -22,7 +23,7 @@ public class SuiteManager {
    private static ConfigFileReader config = new ConfigFileReader();
 
     @BeforeSuite(alwaysRun = true)
-    public void startDriver() throws MalformedURLException {
+    public void startDriver(){ //throws MalformedURLException {
         driverManager= new DriverManager();
 
     }
@@ -50,8 +51,13 @@ public class SuiteManager {
         DriverManager.driver.findElement(By.name("commit")).click();
 
     }
-     public  void signout(){
+/*     public  void signout(){
         WebElement signoutField= DriverManager.driver.findElement(By.xpath("//a[contains(text(), 'Logout')]"));
         signoutField.click();
+     }
+*/
+     public void searchProduct(){
+         driverManager.driver.findElement(By.id("keywords")).sendKeys("Bag");
+         driverManager.driver.findElement(By.id("keywords")).sendKeys(Keys.ENTER);
      }
 }
