@@ -11,6 +11,8 @@ import org.testng.annotations.BeforeSuite;
 import utils.ConfigFileReader;
 import utils.DriverManager;
 
+import java.net.MalformedURLException;
+
 public class SuiteManager {
     DriverManager driverManager;
     String email="spree_user_email";
@@ -20,15 +22,16 @@ public class SuiteManager {
    private static ConfigFileReader config = new ConfigFileReader();
 
     @BeforeSuite(alwaysRun = true)
-    public void startDriver(){
+    public void startDriver() throws MalformedURLException {
         driverManager= new DriverManager();
+
     }
 
- /*   @AfterSuite(alwaysRun = true)
+    @AfterSuite(alwaysRun = true)
     public void quitDriver(){
         DriverManager. driver.quit();
     }
-*/
+
     @BeforeClass
     public void launchURL(){
         DriverManager.driver.manage().window().maximize();
