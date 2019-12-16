@@ -13,12 +13,16 @@ import utils.ConfigFileReader;
 import utils.DriverManager;
 
 import java.net.MalformedURLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class SuiteManager {
     DriverManager driverManager;
     String email="spree_user_email";
     String pwd="spree_user_password";
     String linkToLogin="link-to-login";
+    String searchItem;
+
 
    private static ConfigFileReader config = new ConfigFileReader();
 
@@ -30,7 +34,7 @@ public class SuiteManager {
 
     @AfterSuite(alwaysRun = true)
     public void quitDriver(){
-        DriverManager. driver.quit();
+     //   DriverManager. driver.quit();
     }
 
     @BeforeClass
@@ -51,13 +55,10 @@ public class SuiteManager {
         DriverManager.driver.findElement(By.name("commit")).click();
 
     }
-/*     public  void signout(){
-        WebElement signoutField= DriverManager.driver.findElement(By.xpath("//a[contains(text(), 'Logout')]"));
-        signoutField.click();
+     public  String searchItem(){
+         searchItem =config.getProperty("searchItem");
+         return searchItem;
      }
-*/
-     public void searchProduct(){
-         driverManager.driver.findElement(By.id("keywords")).sendKeys("Bag");
-         driverManager.driver.findElement(By.id("keywords")).sendKeys(Keys.ENTER);
-     }
+
+
 }

@@ -12,11 +12,13 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import pages.BasePage;
+import pages.HomePage;
 import pages.LoginPage;
 import suite.SuiteManager;
 import utils.ConfigFileReader;
 import utils.DriverManager;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class LoginTest extends SuiteManager {
@@ -24,6 +26,7 @@ public class LoginTest extends SuiteManager {
 
     public BasePage basePage;
     public LoginPage loginPage;
+    public HomePage homePage;
 
     //locators
     String url ="https://spree-vapasi-prod.herokuapp.com";
@@ -38,6 +41,7 @@ public class LoginTest extends SuiteManager {
     String password="";
     String cpwd ="test12345";
     String wpwd ="test123456";
+    String searchItem = config.getProperty("searchItem");
 
 /* //Read data from property file
     @BeforeTest
@@ -66,20 +70,17 @@ public class LoginTest extends SuiteManager {
         System.out.println("Signed out sucessfully");
     }
 
- /*   @Test(priority = 0)
-    public  void verifyInvalidLoginLogout(){
-
-        WebElement myDynamicElement1 = (new WebDriverWait(DriverManager.driver, 15))
-                .until(ExpectedConditions.presenceOfElementLocated(By.id(linkToLogin)));
-        DriverManager.driver.findElement(By.id(linkToLogin)).click();
-
-        DriverManager.driver.findElement(By.id(email)).sendKeys(username);
-        DriverManager.driver.findElement(By.id(pwd)).sendKeys((password));
-        DriverManager.driver.findElement(By.name("commit")).click();
-
-        Assert.assertEquals(DriverManager.driver.findElement(By.xpath(invalid)).getText(),expectedMsg);
-        //how to handle assert without breaking code
+    @Test(priority = 2)
+    public void testSearchProduct(){
+        homePage = new HomePage();
+        homePage.searchProduct();
+        List<WebElement> webElementList= homePage.getItems();
+        for (int i = 0; i < webElementList.size(); i++) {
+            String title = webElementList.get(i).getText();
+            System.out.println("Product Name ::" + title);
+            Assert.assertTrue(title.toLowerCase().contains(searchItem().toLowerCase()));
+        }
+        System.out.println("search functionality");
     }
 
-*/
 }

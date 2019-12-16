@@ -9,9 +9,9 @@ import utils.DriverManager;
 public class SearchPage extends SuiteManager{
 
     @Test
-    public void searchProduct(){
+    public void search(){
         getlogindata();
-        searchProduct();
+        //searchProduct();
     }
 
 }
