@@ -23,7 +23,6 @@ public class HomePage extends SuiteManager {
     }
 
     String numberOfProducts="//div[@data-hook='products_list_item']";
-    String addToCart = "add-to-cart-button";
 
     @FindBy(id="keywords")
     private WebElement keywords;
@@ -33,9 +32,6 @@ public class HomePage extends SuiteManager {
 
     @FindAll(@FindBy(xpath="//span[@class='info mt-3 d-block']"))
     private List<WebElement> itemDetails;
-
-    @FindBy(id="add-to-cart-button")
-    private WebElement addCart;
 
     public void searchProduct(){
         keywords.sendKeys(searchItem());
@@ -50,19 +46,4 @@ public class HomePage extends SuiteManager {
         return webElementList;
     }
 
-    public String itemDetails(){
-       // List<WebElement> itemDetailsList = new ArrayList<>();
-        String itemTitle= itemDetails.get(1).getText();
-        Assert.assertEquals(itemTitle,"Spree Bag");
-        itemDetails.get(1).click();
-        System.out.println(itemTitle);
-        return itemTitle;
-    }
-
-    public void addToCart(){
-        WebElement myDynamicElement1 = (new WebDriverWait(DriverManager.driver, 15))
-                .until(ExpectedConditions.presenceOfElementLocated(By.id(addToCart)));
-
-        addCart.sendKeys(Keys.ENTER);
-    }
 }

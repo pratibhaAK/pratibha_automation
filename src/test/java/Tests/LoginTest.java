@@ -11,6 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
+import pages.AddToCartPage;
 import pages.BasePage;
 import pages.HomePage;
 import pages.LoginPage;
@@ -27,6 +28,7 @@ public class LoginTest extends SuiteManager {
     public BasePage basePage;
     public LoginPage loginPage;
     public HomePage homePage;
+    public AddToCartPage addToCartPage;
 
     //locators
     String url ="https://spree-vapasi-prod.herokuapp.com";
@@ -85,14 +87,18 @@ public class LoginTest extends SuiteManager {
 
     @Test(priority = 3)
     public void testItemDetails(){
-       homePage=new HomePage();
-       homePage.itemDetails();
+       addToCartPage=new AddToCartPage();
+       String title= addToCartPage.itemDetails();
+        System.out.println("Title is "+ title);
+       String itemDesc=addToCartPage.itemAddedDetails();
+        System.out.println("Desc is "+ itemDesc);
+       Assert.assertTrue(title.toLowerCase().contains((itemDesc).toLowerCase()));
     }
 
     @Test(priority = 4)
     public void testAddCart(){
-        homePage=new HomePage();
-        homePage.addToCart();
+        addToCartPage=new AddToCartPage();
+        addToCartPage.addToCart();
     }
 
 }
