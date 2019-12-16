@@ -83,4 +83,16 @@ public class LoginTest extends SuiteManager {
         System.out.println("search functionality");
     }
 
+    @Test(priority = 3)
+    public void testItemDetails(){
+       homePage=new HomePage();
+       homePage.itemDetails();
+    }
+
+    @Test(priority = 4)
+    public void testAddCart(){
+        homePage=new HomePage();
+        homePage.addToCart();
+    }
+
 }
