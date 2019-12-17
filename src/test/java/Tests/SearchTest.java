@@ -11,7 +11,7 @@ import utils.DriverManager;
 
 import java.util.List;
 
-public class SearchPage extends SuiteManager{
+public class SearchTest extends SuiteManager{
     public HomePage homePage;
 
     @Test

@@ -27,7 +27,7 @@ public class LoginTest extends SuiteManager {
 
     public BasePage basePage;
     public LoginPage loginPage;
-    public HomePage homePage;
+  //  public HomePage homePage;
     public AddToCartPage addToCartPage;
 
     //locators
@@ -52,7 +52,7 @@ public class LoginTest extends SuiteManager {
         password=  config.getProperty("pwd");
     }
 */
-    @Test(priority = 1,dataProvider = "LoginCredentials",dataProviderClass = LoginCredentials.class)
+    @Test(dataProvider = "LoginCredentials",dataProviderClass = LoginCredentials.class)
     public  void verifyLogin(String username, String password){
 
       WebElement myDynamicElement1 = (new WebDriverWait(DriverManager.driver, 15))
@@ -64,15 +64,14 @@ public class LoginTest extends SuiteManager {
         System.out.println("Sign in sucessfully");
     }
 
-   @Test
-    (dependsOnMethods = {"verifyLogin"})
+   @Test(dependsOnMethods = {"verifyLogin"})
     public void VerifyLogout(){
       // WebElement myDynamicElement = (new WebDriverWait(DriverManager.driver, 15)).until(ExpectedConditions.presenceOfElementLocated(By.xpath("//a[contains(text(), 'Logout')]")));
        // signout();
         System.out.println("Signed out sucessfully");
     }
 
-    @Test(priority = 2)
+ /*   @Test(priority = 2)
     public void testSearchProduct(){
         homePage = new HomePage();
         homePage.searchProduct();
@@ -84,15 +83,15 @@ public class LoginTest extends SuiteManager {
         }
         System.out.println("search functionality");
     }
-
-    @Test(priority = 3)
+*/
+ /*   @Test
     public void testItemDetails(){
        addToCartPage=new AddToCartPage();
        String title= addToCartPage.itemDetails();
-        System.out.println("Title is "+ title);
+       System.out.println("Title is "+ title);
        String itemDesc=addToCartPage.itemAddedDetails();
-        System.out.println("Desc is "+ itemDesc);
-       Assert.assertTrue(title.toLowerCase().contains((itemDesc).toLowerCase()));
+       System.out.println("Desc is "+ itemDesc);
+       //Assert.assertTrue(title.toLowerCase().contains((itemDesc).toLowerCase()));
     }
 
     @Test(priority = 4)
@@ -100,5 +99,5 @@ public class LoginTest extends SuiteManager {
         addToCartPage=new AddToCartPage();
         addToCartPage.addToCart();
     }
-
+*/
 }
