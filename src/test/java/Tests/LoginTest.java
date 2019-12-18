@@ -71,33 +71,4 @@ public class LoginTest extends SuiteManager {
         System.out.println("Signed out sucessfully");
     }
 
- /*   @Test(priority = 2)
-    public void testSearchProduct(){
-        homePage = new HomePage();
-        homePage.searchProduct();
-        List<WebElement> webElementList= homePage.getItems();
-        for (int i = 0; i < webElementList.size(); i++) {
-            String title = webElementList.get(i).getText();
-            System.out.println("Product Name ::" + title);
-            Assert.assertTrue(title.toLowerCase().contains(searchItem().toLowerCase()));
-        }
-        System.out.println("search functionality");
-    }
-*/
- /*   @Test
-    public void testItemDetails(){
-       addToCartPage=new AddToCartPage();
-       String title= addToCartPage.itemDetails();
-       System.out.println("Title is "+ title);
-       String itemDesc=addToCartPage.itemAddedDetails();
-       System.out.println("Desc is "+ itemDesc);
-       //Assert.assertTrue(title.toLowerCase().contains((itemDesc).toLowerCase()));
-    }
-
-    @Test(priority = 4)
-    public void testAddCart(){
-        addToCartPage=new AddToCartPage();
-        addToCartPage.addToCart();
-    }
-*/
 }
