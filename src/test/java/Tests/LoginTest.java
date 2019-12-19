@@ -27,7 +27,6 @@ public class LoginTest extends SuiteManager {
 
     public BasePage basePage;
     public LoginPage loginPage;
-  //  public HomePage homePage;
     public AddToCartPage addToCartPage;
 
     //locators
@@ -55,20 +54,11 @@ public class LoginTest extends SuiteManager {
     @Test(dataProvider = "LoginCredentials",dataProviderClass = LoginCredentials.class)
     public  void verifyLogin(String username, String password){
 
-      WebElement myDynamicElement1 = (new WebDriverWait(DriverManager.driver, 15))
-                .until(ExpectedConditions.presenceOfElementLocated(By.id(linkToLogin)));
-
-    basePage = new BasePage(DriverManager.driver);
+    basePage = new BasePage();
     loginPage = basePage.clickLoginButton();
     loginPage.login(username,password);
-        System.out.println("Sign in sucessfully");
-    }
-
-   @Test(dependsOnMethods = {"verifyLogin"})
-    public void VerifyLogout(){
-      // WebElement myDynamicElement = (new WebDriverWait(DriverManager.driver, 15)).until(ExpectedConditions.presenceOfElementLocated(By.xpath("//a[contains(text(), 'Logout')]")));
-       // signout();
-        System.out.println("Signed out sucessfully");
+    Assert.assertEquals(loginPage.getLoginmessage(),"Logged in successfully");
+    System.out.println("Sign in sucessfully");
     }
 
 }

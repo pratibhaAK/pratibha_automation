@@ -18,7 +18,8 @@ public class LoginPage {
 
     @FindBy(id ="spree_user_password")
     private WebElement passwordField;
-
+    @FindBy(className = "alert alert-success")
+    private WebElement loginmsg;
 
     public void enterValue(WebElement field, String value){
 
@@ -32,4 +33,8 @@ public class LoginPage {
         return new HomePage();
     }
 
+    public String getLoginmessage(){
+
+        return loginmsg.getText();
+    }
 }
