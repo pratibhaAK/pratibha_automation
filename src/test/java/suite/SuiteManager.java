@@ -34,7 +34,7 @@ public class SuiteManager {
 
     @AfterSuite(alwaysRun = true)
     public void quitDriver(){
-        DriverManager. driver.quit();
+     //   DriverManager. driver.quit();
     }
 
     @BeforeClass

@@ -5,7 +5,7 @@
             <class name="Tests.LoginTest"/>
             <class name="Tests.SearchTest"/>
             <class name="Tests.AddToCartTest"/>
-            <class name="Tests.SignUpPageTest"/>
+            <class name="Tests.LogoutTest"/>
         </classes>
     </test>
 </suite>

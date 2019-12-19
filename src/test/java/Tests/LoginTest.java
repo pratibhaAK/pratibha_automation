@@ -58,7 +58,6 @@ public class LoginTest extends SuiteManager {
     loginPage = basePage.clickLoginButton();
     loginPage.login(username,password);
     Assert.assertEquals(loginPage.getLoginmessage(),"Logged in successfully");
-    System.out.println("Sign in sucessfully");
     }
 
 }

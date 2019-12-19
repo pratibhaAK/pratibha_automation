@@ -2,13 +2,15 @@ package Tests;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import pages.LogoutPage;
 
 public class LogoutTest {
 
-    @Test(dependsOnMethods = {"verifyLogin"})
+    LogoutPage logoutPage;
+
+    @Test
     public void VerifyLogout(){
-        // WebElement myDynamicElement = (new WebDriverWait(DriverManager.driver, 15)).until(ExpectedConditions.presenceOfElementLocated(By.xpath("//a[contains(text(), 'Logout')]")));
-        // signout();
-      //  Assert.assertEquals(loginPage.getLoginmessage(),"Signed out sucessfully");
+        logoutPage.logout();
+        Assert.assertEquals(logoutPage.getLogoutMsg(),"Signed out successfully");
     }
 }

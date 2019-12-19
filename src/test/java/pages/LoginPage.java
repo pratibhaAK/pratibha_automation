@@ -18,6 +18,7 @@ public class LoginPage {
 
     @FindBy(id ="spree_user_password")
     private WebElement passwordField;
+    
     @FindBy(className = "alert alert-success")
     private WebElement loginmsg;
 
